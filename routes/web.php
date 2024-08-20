@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-use App\http\Controllers\HomeController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,4 +23,5 @@ require __DIR__.'/auth.php';
 
 
 
-route::ger('admin/dashboard',[HomeController::class,'index'])
+Route::get('admin/dashboard',[HomeController::class,'index'])->
+    middleware(['auth','admin']);
